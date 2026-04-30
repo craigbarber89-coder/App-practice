@@ -267,7 +267,7 @@ export default function SchedulePage() {
 
   // Weekly hours per employee
   function weeklyHours(empId: string): number {
-    return (shiftMap.get(empId) ? [...shiftMap.get(empId)!.values()] : [])
+    return (shiftMap.get(empId) ? Array.from(shiftMap.get(empId)!.values()) : [])
       .flat()
       .reduce((sum, s) => sum + shiftHours(s.start_time, s.end_time), 0)
   }
